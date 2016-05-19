@@ -26,3 +26,9 @@ body{
 #myModal{
 	width: 100%;
 }
+.ver{
+	display: block;
+}
+.ocultar{
+	display: none;
+}
