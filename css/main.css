@@ -10,3 +10,19 @@ body{
 .clock{
 	font-size: 30px;
 }
+
+.label-modal{
+	display: inline-block;
+	width: 100%;
+
+
+}
+.modal-header{
+	display: inline-block;
+	width: 50%;
+	border: none;
+	text-align: left;
+}
+#myModal{
+	width: 100%;
+}
