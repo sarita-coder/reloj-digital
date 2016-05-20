@@ -1,8 +1,17 @@
 $(function(){
 	$("#reloj").on(hora());
-	//$("#moden").on(pais());
+	$(".moden").click(function(){
+		var check = this.checked
+		val= $(this).attr("data");
+		if(check==true){
+			$(".paises").append("<div id='p"+val+"'></div>");
+			horaPais(val);
+		}else{
+			$("#p"+val).remove();
+		}
+	});
 });
-
+var val=0;
 function hora(){
 	var tiempo = new Date();
 	var h = tiempo.getHours();
@@ -11,18 +20,16 @@ function hora(){
 	var day = tiempo.getDay();
 	var mes = tiempo.getMonth();
 	var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
 	var nomDia= new Array("Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb");
-	var t = setTimeout('hora()',500);
+	setTimeout('hora()',500);
 	$("#reloj").html(h+":"+m+":"+s);
 	$("#fecha").html(nomDia[day]+", "+tiempo.getDate()+" de "+meses[mes]);
 }
-//$(".moden").change(pais);
 var ArrayPais= [{
 				nombre:"Chicago",
 				horario: "0",
 				},{
-				nombre:"Sao Paulo",
+				nombre:"Sao Pablo",
 				horario: "+2",
 				},{
 				nombre:"Santiago",
@@ -49,29 +56,17 @@ var ArrayPais= [{
 				nombre:"Bogota",
 				horario: "1",
 				}];
-
-function horaPais(){
-	var Huso=$(".label-modal").val();
-
-
+function horaPais(val){
+	var tiempo = new Date();
+	var h = tiempo.getHours();
+	var m = tiempo.getMinutes();
+	var s = tiempo.getSeconds();
+	setTimeout('horaPais('+val+')',500);
+	var Huso=ArrayPais[val].horario;
+	var Pais=ArrayPais[val].nombre;
+	A=h+parseInt(Huso);
+	$("#p"+val).html("<p class='left'>"+Pais+"</p><p class='right'>"+A+":"+m+":"+s+"</p>");
 }
-// function pais (){
-// 	if($(this).prop("checked")==true){
-// 		$(".moden")
-// 		$(".paises").append("<p id='p"+num+"'>hola</p>");
-
-// 	} else {
-// 		$("#p"+num).remove();
-// 	}
-// }
-	// <p class='p"+num+"'>
-	// $('#nun'+num)
-$(document).ready(function(){
-	$(".moden").click(function(){
-		alert($(this).attr("data"));
-	});
-});
-
 
 
 

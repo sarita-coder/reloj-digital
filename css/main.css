@@ -32,3 +32,12 @@ body{
 .ocultar{
 	display: none;
 }
+p{
+	color:blue;
+}
+.left , .right{
+	width: 45%;
+	display: inline-block;
+	font-size: 25px;
+	color: white;
+}
